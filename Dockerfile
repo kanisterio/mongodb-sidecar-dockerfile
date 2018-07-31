@@ -5,8 +5,8 @@ USER root
 
 ADD . /kanister
 
-COPY --from=google/cloud-sdk:206.0.0-slim /usr/lib/google-cloud-sdk /usr/lib/google-cloud-sdk
-
 RUN /kanister/install.sh && rm -rf /kanister && rm -rf /tmp && mkdir /tmp
+
+COPY --from=kanisterio/kanister-tools:0.10.0 /usr/local/bin/kando /usr/local/bin/kando
 
 CMD ["tail", "-f", "/dev/null"]

@@ -19,12 +19,11 @@ mv 90forceyes /etc/apt/apt.conf.d/
 
 echo "================= Installing basic packages ==================="
 apt-get update && \
-apt-get install wget python -y
+apt-get install wget musl-dev python -y
 
 echo "================= Installing Python packages ==================="
 wget --progress=dot:mega https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
-
 
 echo "================= Adding awscli ============"
 pip install awscli
